@@ -92,7 +92,11 @@ class taquin :
         manhattan=abs(x-x2)+abs(y-y2)
         return manhattan 
 
-   
+   def heuristic(matInitiale,matBut,n):
+        s=0
+        for i in range(9):
+            s=s+taquin.dist_Manhattan(matInitiale,matBut,i,n)
+        print("la distance de manhattan est ",s)
 
 Mat=taquin.init(self)
 print(Mat)
