@@ -77,12 +77,27 @@ class taquin :
         return l
 
     
+    def dist_Manhattan(matI,matB,V,n):
+        x=y=x2=y2=0
+        for i in range (n):
+            for j in range (n):
+                if matI[i][j] ==V:
+                    x=i
+                    y=j
+        for i in range (n) :
+            for j in range (n):
+                if matB[i][j] ==V:
+                    x2=i
+                    y2=j
+        manhattan=abs(x-x2)+abs(y-y2)
+        return manhattan 
 
    
 
 Mat=taquin.init(self)
 print(Mat)
 n=len(Mat)
+V=input("Donner un valeur")
 print()
 print("taquin.action(Mat,n,'H')\n",taquin.action(Mat,n,"H"))
 print("taquin.action(Mat,n,'G')\n",taquin.action(Mat,n,"G"))
@@ -91,4 +106,5 @@ for i in taquin.successeur(Mat,n):
     print(i,"\n")
 MatBut=taquin.initMB(self)
 print("Matrice But \n",MatBut)
+taquin.dist_Manhattan(Mat,MatBut,V,n)
 taquin.heuristic(Mat,MatBut,n)
